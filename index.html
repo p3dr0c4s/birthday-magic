@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Uma pequena surpresa de aniversário feita com carinho."
+    >
+
+    <title>Birthday Magic 🎂</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="birthday-container">
+        <!-- =====================================
+             TELA INICIAL
+        ====================================== -->
+
+        <section class="screen active" id="welcome-screen">
+
+            <div class="background-decoration">
+                <span>✦</span>
+                <span>✧</span>
+                <span>✦</span>
+                <span>·</span>
+            </div>
+
+
+            <div class="balloons">
+
+                <span class="balloon balloon-pink"></span>
+                <span class="balloon balloon-blue"></span>
+                <span class="balloon balloon-yellow"></span>
+                <span class="balloon balloon-purple"></span>
+
+            </div>
+
+
+            <div class="welcome-content">
+
+                <div class="small-label">
+                    UMA PEQUENA SURPRESA
+                </div>
+
+
+                <!-- PERSONAGEM -->
+
+                <div class="person">
+
+                    <div class="person-head">
+
+                        <div class="eye left-eye"></div>
+                        <div class="eye right-eye"></div>
+
+                        <div class="smile"></div>
+
+                    </div>
+
+                    <div class="person-body"></div>
+
+                    <div class="person-arm left"></div>
+                    <div class="person-arm right"></div>
+
+                    <div class="person-leg left"></div>
+                    <div class="person-leg right"></div>
+
+                </div>
+
+
+                <h1>
+                    Uma surpresa está esperando por você...
+                </h1>
+
+
+                <p>
+                    Tem uma pequena festa preparada.
+                    Só falta você apertar o botão.
+                </p>
+
+
+                <button id="start-btn">
+                    🎁 COMEÇAR
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             TELA DA FESTA
+        ====================================== -->
+
+        <section class="screen" id="party-screen">
+
+            <div class="background-decoration">
+                <span>✦</span>
+                <span>✧</span>
+                <span>✦</span>
+                <span>✧</span>
+            </div>
+
+
+            <div class="balloons">
+
+                <span class="balloon balloon-pink"></span>
+                <span class="balloon balloon-blue"></span>
+                <span class="balloon balloon-yellow"></span>
+                <span class="balloon balloon-purple"></span>
+                <span class="balloon balloon-green"></span>
+
+            </div>
+
+
+            <div class="party-content">
+
+
+                <div class="small-label">
+                    HOJE É O SEU DIA
+                </div>
+
+
+                <!-- PERSONAGEM -->
+
+                <div class="person party-person">
+
+                    <div class="person-head">
+
+                        <div class="eye left-eye"></div>
+                        <div class="eye right-eye"></div>
+
+                        <div class="smile"></div>
+
+                    </div>
+
+                    <div class="person-body"></div>
+
+                    <div class="person-arm left"></div>
+                    <div class="person-arm right"></div>
+
+                    <div class="person-leg left"></div>
+                    <div class="person-leg right"></div>
+
+                </div>
+
+
+                <h1>
+                    Hora de fazer um pedido!
+                </h1>
+
+
+                <p>
+                    Feche os olhos, faça um pedido
+                    e apague a vela.
+                </p>
+
+
+                <!-- =================================
+                     BOLO
+                ================================== -->
+
+                <div class="cake">
+
+                    <div class="candle">
+
+                        <div class="flame"></div>
+
+                    </div>
+
+
+                    <div class="cake-top"></div>
+
+
+                    <div class="cake-middle">
+
+                        <div class="cake-decoration"></div>
+                        <div class="cake-decoration"></div>
+                        <div class="cake-decoration"></div>
+
+                    </div>
+
+
+                    <div class="cake-bottom"></div>
+
+                </div>
+
+
+                <button id="candle-btn">
+                    🕯️ APAGAR A VELA
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             TELA FINAL
+        ====================================== -->
+
+        <section class="screen" id="final-screen">
+
+            <div id="confetti"></div>
+
+
+            <div class="background-decoration">
+                <span>✦</span>
+                <span>✧</span>
+                <span>✦</span>
+                <span>✧</span>
+            </div>
+
+
+            <div class="final-content">
+
+
+                <div class="small-label">
+                    SURPRESA! 🎉
+                </div>
+
+
+                <!-- PERSONAGEM -->
+
+                <div class="person celebration-person">
+
+                    <div class="person-head">
+
+                        <div class="eye left-eye"></div>
+                        <div class="eye right-eye"></div>
+
+                        <div class="smile"></div>
+
+                    </div>
+
+                    <div class="person-body"></div>
+
+                    <div class="person-arm left"></div>
+                    <div class="person-arm right"></div>
+
+                    <div class="person-leg left"></div>
+                    <div class="person-leg right"></div>
+
+                </div>
+
+
+                <h1>
+                    FELIZ ANIVERSÁRIO!
+                </h1>
+
+
+                <div class="final-cake">
+                    🎂
+                </div>
+
+
+                <p id="birthday-message">
+                    Que seu dia seja incrível,
+                    cheio de momentos bons
+                    e motivos para sorrir.
+                </p>
+
+
+                <p class="signature">
+                    Feito especialmente para você.
+                </p>
+
+
+                <!-- =================================
+                     SURPRESA
+                ================================== -->
+
+                <button id="surprise-btn" class="surprise-button">
+                    🎁 TEM MAIS UMA COISA...
+                </button>
+
+
+                <div id="surprise-box" class="surprise-box">
+
+                    <div class="surprise-icon">
+                        💝
+                    </div>
+
+                    <h2>
+                        Você é uma pessoa muito especial para muita gente, obrigado por existir e fazer parte da vida de todos nós! 
+                    </h2>
+
+                    <p>
+                        Espero que esse novo ano da sua vida
+                        seja cheio de histórias incríveis,
+                        risadas e momentos que valham a pena lembrar.
+                    </p>
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

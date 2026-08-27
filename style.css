@@ -1,0 +1,1097 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --pink: #f3a6b9;
+    --pink-dark: #d98ba1;
+
+    --blue: #a9d8e8;
+    --yellow: #f8d98b;
+    --purple: #c9b6df;
+    --green: #b9dfc4;
+
+    --cream: #fff8ef;
+
+    --text: #66556f;
+    --soft-text: #817488;
+}
+
+
+body {
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    background: var(--cream);
+
+    color: var(--text);
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.birthday-container {
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+}
+
+
+/* ========================================
+   TELAS
+======================================== */
+
+.screen {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(0.96);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        visibility 0.6s;
+}
+
+
+.screen.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+/* ========================================
+   FUNDOS
+======================================== */
+
+#welcome-screen {
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #ffdce8 0%,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 90% 90%,
+            #dcecff 0%,
+            transparent 35%
+        ),
+
+        var(--cream);
+}
+
+
+#party-screen {
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            #ffe5b8 0%,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 10% 90%,
+            #e3d9ff 0%,
+            transparent 35%
+        ),
+
+        var(--cream);
+}
+
+
+#final-screen {
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #ffd8e5 0%,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 10%,
+            #ffe8bd 0%,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            #dceaff 0%,
+            transparent 40%
+        ),
+
+        var(--cream);
+}
+
+
+/* ========================================
+   DECORAÇÕES
+======================================== */
+
+.background-decoration {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+.background-decoration span {
+    position: absolute;
+
+    font-size: 2rem;
+
+    opacity: 0.25;
+
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+
+.background-decoration span:nth-child(1) {
+    left: 20%;
+    top: 15%;
+}
+
+
+.background-decoration span:nth-child(2) {
+    right: 20%;
+    top: 30%;
+
+    animation-delay: 0.8s;
+}
+
+
+.background-decoration span:nth-child(3) {
+    left: 30%;
+    bottom: 20%;
+
+    animation-delay: 1.4s;
+}
+
+
+.background-decoration span:nth-child(4) {
+    right: 30%;
+    bottom: 15%;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+}
+
+
+/* ========================================
+   CONTEÚDO
+======================================== */
+
+.welcome-content,
+.party-content,
+.final-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(90%, 720px);
+
+    padding: 25px;
+
+    text-align: center;
+}
+
+
+.small-label {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    padding: 7px 15px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.6);
+
+    color: var(--soft-text);
+
+    font-size: 0.75rem;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+h1 {
+    color: var(--text);
+
+    font-size:
+        clamp(2.2rem, 5vw, 4rem);
+
+    line-height: 1.08;
+
+    margin-bottom: 18px;
+}
+
+
+p {
+    color: var(--soft-text);
+
+    font-size: 1.1rem;
+
+    line-height: 1.6;
+
+    margin-bottom: 28px;
+}
+
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+button {
+    border: none;
+
+    padding: 16px 30px;
+
+    border-radius: 999px;
+
+    background: var(--pink);
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 0 var(--pink-dark);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        opacity 0.2s ease;
+}
+
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 0 var(--pink-dark);
+}
+
+
+button:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        0 3px 0 var(--pink-dark);
+}
+
+
+button:disabled {
+    cursor: default;
+
+    opacity: 0.65;
+}
+
+
+/* ========================================
+   PERSONAGEM
+======================================== */
+
+.person {
+    position: relative;
+
+    width: 100px;
+    height: 155px;
+
+    margin: 0 auto 20px;
+
+    animation:
+        personFloat 2.5s ease-in-out infinite;
+}
+
+
+/* CABEÇA */
+
+.person-head {
+    position: absolute;
+
+    width: 58px;
+    height: 58px;
+
+    top: 0;
+    left: 21px;
+
+    background: #ffd6b8;
+
+    border-radius: 50%;
+
+    box-shadow:
+        inset -5px -5px 0 rgba(0, 0, 0, 0.04);
+}
+
+
+/* OLHOS */
+
+.eye {
+    position: absolute;
+
+    width: 6px;
+    height: 8px;
+
+    top: 24px;
+
+    background: #5f5364;
+
+    border-radius: 50%;
+}
+
+
+.left-eye {
+    left: 17px;
+}
+
+
+.right-eye {
+    right: 17px;
+}
+
+
+/* SORRISO */
+
+.smile {
+    position: absolute;
+
+    width: 18px;
+    height: 9px;
+
+    left: 20px;
+    bottom: 12px;
+
+    border-bottom:
+        3px solid #5f5364;
+
+    border-radius: 50%;
+}
+
+
+/* CORPO */
+
+.person-body {
+    position: absolute;
+
+    width: 58px;
+    height: 67px;
+
+    top: 53px;
+    left: 21px;
+
+    background: var(--blue);
+
+    border-radius:
+        25px
+        25px
+        15px
+        15px;
+}
+
+
+/* BRAÇOS */
+
+.person-arm {
+    position: absolute;
+
+    width: 14px;
+    height: 55px;
+
+    top: 58px;
+
+    background: #ffd6b8;
+
+    border-radius: 20px;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.person-arm.left {
+    left: 9px;
+
+    transform: rotate(25deg);
+}
+
+
+.person-arm.right {
+    right: 9px;
+
+    transform: rotate(-25deg);
+}
+
+
+/* PERNAS */
+
+.person-leg {
+    position: absolute;
+
+    width: 15px;
+    height: 45px;
+
+    top: 113px;
+
+    background: #8d7b96;
+
+    border-radius: 20px;
+}
+
+
+.person-leg.left {
+    left: 29px;
+
+    transform: rotate(5deg);
+}
+
+
+.person-leg.right {
+    right: 29px;
+
+    transform: rotate(-5deg);
+}
+
+
+@keyframes personFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   PERSONAGEM FINAL
+======================================== */
+
+.celebration-person {
+    animation:
+        celebration 0.65s ease-in-out infinite;
+}
+
+
+@keyframes celebration {
+
+    0% {
+        transform: rotate(-8deg);
+    }
+
+    50% {
+        transform: rotate(8deg);
+    }
+
+    100% {
+        transform: rotate(-8deg);
+    }
+}
+
+
+/* ========================================
+   BALÕES
+======================================== */
+
+.balloons {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+
+.balloon {
+    position: absolute;
+
+    width: 55px;
+    height: 68px;
+
+    border-radius:
+        50%
+        50%
+        45%
+        45%;
+
+    animation:
+        balloonFloat 5s ease-in-out infinite;
+}
+
+
+.balloon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+    height: 100px;
+
+    top: 65px;
+    left: 50%;
+
+    background:
+        rgba(100, 90, 110, 0.25);
+}
+
+
+.balloon-pink {
+    background: var(--pink);
+
+    left: 8%;
+    top: 15%;
+}
+
+
+.balloon-blue {
+    background: var(--blue);
+
+    right: 10%;
+    top: 20%;
+
+    animation-delay: 1s;
+}
+
+
+.balloon-yellow {
+    background: var(--yellow);
+
+    left: 15%;
+    bottom: 15%;
+
+    animation-delay: 2s;
+}
+
+
+.balloon-purple {
+    background: var(--purple);
+
+    right: 17%;
+    bottom: 12%;
+
+    animation-delay: 3s;
+}
+
+
+.balloon-green {
+    background: var(--green);
+
+    left: 45%;
+    top: 8%;
+
+    animation-delay: 1.5s;
+}
+
+
+@keyframes balloonFloat {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            rotate(5deg);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
+}
+
+
+/* ========================================
+   BOLO
+======================================== */
+
+.cake {
+    position: relative;
+
+    width: 230px;
+    height: 190px;
+
+    margin:
+        5px auto 25px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+/* BASE */
+
+.cake-bottom {
+    position: absolute;
+
+    width: 210px;
+    height: 65px;
+
+    left: 10px;
+    bottom: 10px;
+
+    background: #e9a8b9;
+
+    border-radius:
+        15px
+        15px
+        25px
+        25px;
+
+    box-shadow:
+        inset 0 -10px 0
+        rgba(0, 0, 0, 0.06);
+}
+
+
+/* MEIO */
+
+.cake-middle {
+    position: absolute;
+
+    width: 190px;
+    height: 55px;
+
+    left: 20px;
+    bottom: 65px;
+
+    background: #f6c7d2;
+
+    border-radius: 14px;
+}
+
+
+/* DECORAÇÕES */
+
+.cake-decoration {
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    bottom: 12px;
+
+    background: #fff4cf;
+
+    border-radius: 50%;
+}
+
+
+.cake-decoration:nth-child(1) {
+    left: 30px;
+}
+
+
+.cake-decoration:nth-child(2) {
+    left: 86px;
+}
+
+
+.cake-decoration:nth-child(3) {
+    right: 30px;
+}
+
+
+/* TOPO */
+
+.cake-top {
+    position: absolute;
+
+    width: 200px;
+    height: 55px;
+
+    left: 15px;
+    bottom: 115px;
+
+    background: #fff0d8;
+
+    border-radius: 50%;
+
+    box-shadow:
+        inset 0 -7px 0 #f0c7c0;
+}
+
+
+/* ========================================
+   VELA
+======================================== */
+
+.candle {
+    position: absolute;
+
+    width: 15px;
+    height: 55px;
+
+    left: 108px;
+    bottom: 145px;
+
+    background: var(--blue);
+
+    border-radius: 6px;
+
+    z-index: 3;
+}
+
+
+.flame {
+    position: absolute;
+
+    width: 18px;
+    height: 25px;
+
+    left: -1px;
+    top: -24px;
+
+    background: #ffd66b;
+
+    border-radius:
+        50%
+        50%
+        50%
+        0;
+
+    transform: rotate(-45deg);
+
+    animation:
+        flameFlicker 0.7s
+        ease-in-out
+        infinite
+        alternate;
+
+    box-shadow:
+        0 0 15px
+        rgba(255, 196, 90, 0.8);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.flame-off {
+    opacity: 0;
+
+    transform:
+        rotate(-45deg)
+        scale(0);
+}
+
+
+@keyframes flameFlicker {
+
+    from {
+        transform:
+            rotate(-45deg)
+            scale(1);
+    }
+
+    to {
+        transform:
+            rotate(-42deg)
+            scale(1.12);
+    }
+}
+
+
+/* ========================================
+   BOLO FINAL
+======================================== */
+
+.final-cake {
+    font-size: 7rem;
+
+    margin:
+        0 0 15px;
+
+    animation:
+        finalCakeBounce
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes finalCakeBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+/* ========================================
+   SURPRESA
+======================================== */
+
+.surprise-button {
+    margin-top: 5px;
+
+    background: #c9b6df;
+
+    box-shadow:
+        0 7px 0 #a993c0;
+}
+
+
+.surprise-button:hover {
+    box-shadow:
+        0 10px 0 #a993c0;
+}
+
+
+.surprise-box {
+    max-width: 550px;
+
+    margin: 25px auto 0;
+
+    padding: 28px;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    border:
+        2px solid
+        rgba(201, 182, 223, 0.5);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(100, 80, 110, 0.08);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(20px)
+        scale(0.95);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0.5s;
+}
+
+
+.surprise-box.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+.surprise-icon {
+    font-size: 3rem;
+
+    margin-bottom: 10px;
+}
+
+
+.surprise-box h2 {
+    margin-bottom: 10px;
+
+    color: var(--text);
+}
+
+
+.surprise-box p {
+    margin-bottom: 15px;
+
+    font-size: 1rem;
+}
+
+
+.surprise-box span {
+    font-size: 0.9rem;
+
+    color: var(--soft-text);
+
+    font-weight: bold;
+}
+
+
+/* ========================================
+   CONFETES
+======================================== */
+
+#confetti {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 20;
+}
+
+
+.confetti-piece {
+    position: absolute;
+
+    top: -30px;
+
+    animation:
+        confettiFall
+        3s
+        linear
+        forwards;
+}
+
+
+@keyframes confettiFall {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+
+/* ========================================
+   ASSINATURA
+======================================== */
+
+.signature {
+    font-size: 0.9rem;
+
+    opacity: 0.65;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+
+    p {
+        font-size: 1rem;
+    }
+
+
+    .welcome-content,
+    .party-content,
+    .final-content {
+        padding: 15px;
+    }
+
+
+    .person {
+        transform: scale(0.8);
+        margin-bottom: 5px;
+    }
+
+
+    .cake {
+        transform: scale(0.78);
+
+        margin-top: -10px;
+        margin-bottom: -5px;
+    }
+
+
+    .balloon {
+        width: 40px;
+        height: 52px;
+    }
+
+
+    .balloon::after {
+        top: 50px;
+        height: 70px;
+    }
+
+
+    .final-cake {
+        font-size: 5rem;
+    }
+
+
+    .surprise-box {
+        padding: 20px;
+    }
+
+}
